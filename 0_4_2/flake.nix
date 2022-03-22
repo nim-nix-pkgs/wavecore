@@ -8,8 +8,8 @@
   inputs.flakeNimbleLib.inputs.nixpkgs.follows = "nixpkgs";
   
   inputs.src-wavecore-0_4_2.flake = false;
+  inputs.src-wavecore-0_4_2.ref   = "refs/tags/0.4.2";
   inputs.src-wavecore-0_4_2.owner = "ansiwave";
-  inputs.src-wavecore-0_4_2.ref   = "0_4_2";
   inputs.src-wavecore-0_4_2.repo  = "wavecore";
   inputs.src-wavecore-0_4_2.type  = "github";
   
