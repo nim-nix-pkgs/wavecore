@@ -7,11 +7,11 @@
   inputs.flakeNimbleLib.type  = "github";
   inputs.flakeNimbleLib.inputs.nixpkgs.follows = "nixpkgs";
   
-  inputs.src-wavecore-0_4_2.flake = false;
-  inputs.src-wavecore-0_4_2.ref   = "refs/tags/0.4.2";
-  inputs.src-wavecore-0_4_2.owner = "ansiwave";
-  inputs.src-wavecore-0_4_2.repo  = "wavecore";
-  inputs.src-wavecore-0_4_2.type  = "github";
+  inputs.src-wavecore-0_7_0.flake = false;
+  inputs.src-wavecore-0_7_0.ref   = "refs/tags/0.7.0";
+  inputs.src-wavecore-0_7_0.owner = "ansiwave";
+  inputs.src-wavecore-0_7_0.repo  = "wavecore";
+  inputs.src-wavecore-0_7_0.type  = "github";
   
   inputs."urlly".owner = "nim-nix-pkgs";
   inputs."urlly".ref   = "master";
@@ -53,16 +53,32 @@
   inputs."paramidi".inputs.nixpkgs.follows = "nixpkgs";
   inputs."paramidi".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
   
+  inputs."threading".owner = "nim-nix-pkgs";
+  inputs."threading".ref   = "master";
+  inputs."threading".repo  = "threading";
+  inputs."threading".dir   = "master";
+  inputs."threading".type  = "github";
+  inputs."threading".inputs.nixpkgs.follows = "nixpkgs";
+  inputs."threading".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
+  
+  inputs."ansiutils".owner = "nim-nix-pkgs";
+  inputs."ansiutils".ref   = "master";
+  inputs."ansiutils".repo  = "ansiutils";
+  inputs."ansiutils".dir   = "0_1_0";
+  inputs."ansiutils".type  = "github";
+  inputs."ansiutils".inputs.nixpkgs.follows = "nixpkgs";
+  inputs."ansiutils".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
+  
   outputs = { self, nixpkgs, flakeNimbleLib, ...}@deps:
   let 
     lib  = flakeNimbleLib.lib;
-    args = ["self" "nixpkgs" "flakeNimbleLib" "src-wavecore-0_4_2"];
+    args = ["self" "nixpkgs" "flakeNimbleLib" "src-wavecore-0_7_0"];
     over = if builtins.pathExists ./override.nix 
            then { override = import ./override.nix; }
            else { };
   in lib.mkRefOutput (over // {
     inherit self nixpkgs ;
-    src  = deps."src-wavecore-0_4_2";
+    src  = deps."src-wavecore-0_7_0";
     deps = builtins.removeAttrs deps args;
     meta = builtins.fromJSON (builtins.readFile ./meta.json);
   } );
