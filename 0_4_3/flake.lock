@@ -29,19 +29,19 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "src-flatty-0_3_0": "src-flatty-0_3_0"
+        "src-flatty-0_3_3": "src-flatty-0_3_3"
       },
       "locked": {
-        "dir": "0_3_0",
-        "lastModified": 1652791449,
-        "narHash": "sha256-fAKQtq+/96jXpXqttjWDzoB+VDNI2sJUeo0+Xfbc8fI=",
+        "dir": "0_3_3",
+        "lastModified": 1653701864,
+        "narHash": "sha256-j9Xd1fTkyFdWwl/OrimkmylRWM2fIa7uSuVJGic4X7A=",
         "owner": "nim-nix-pkgs",
         "repo": "flatty",
-        "rev": "1f8e4b86cb35f9b84a41368b9f9d7f4956decc92",
+        "rev": "96ab7256566d5e3b46fa9b029c0cb75c50770af7",
         "type": "github"
       },
       "original": {
-        "dir": "0_3_0",
+        "dir": "0_3_3",
         "owner": "nim-nix-pkgs",
         "ref": "master",
         "repo": "flatty",
@@ -157,19 +157,19 @@
         "zippy": "zippy_2"
       }
     },
-    "src-flatty-0_3_0": {
+    "src-flatty-0_3_3": {
       "flake": false,
       "locked": {
-        "lastModified": 1652759917,
-        "narHash": "sha256-S7F10fhQHklSQbVFehZ5N2Ki/y1ZYpM06YnT22Gwy0A=",
+        "lastModified": 1653093944,
+        "narHash": "sha256-e6I440biMobmvqqnVFD6fsWy7tD5QFO8AxKKGB2dc+8=",
         "owner": "treeform",
         "repo": "flatty",
-        "rev": "4422fc547151cce6f552da21a34629bbacc405c5",
+        "rev": "41252987a466245b28e332caa2861881cd50b54e",
         "type": "github"
       },
       "original": {
         "owner": "treeform",
-        "ref": "refs/tags/0.3.0",
+        "ref": "refs/tags/0.3.3",
         "repo": "flatty",
         "type": "github"
       }
