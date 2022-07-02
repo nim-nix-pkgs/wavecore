@@ -7,11 +7,11 @@
   inputs.flakeNimbleLib.type  = "github";
   inputs.flakeNimbleLib.inputs.nixpkgs.follows = "nixpkgs";
   
-  inputs.src-wavecore-0_3_0.flake = false;
-  inputs.src-wavecore-0_3_0.ref   = "refs/tags/0.3.0";
-  inputs.src-wavecore-0_3_0.owner = "ansiwave";
-  inputs.src-wavecore-0_3_0.repo  = "wavecore";
-  inputs.src-wavecore-0_3_0.type  = "github";
+  inputs.src-wavecore-0_7_1.flake = false;
+  inputs.src-wavecore-0_7_1.ref   = "refs/tags/0.7.1";
+  inputs.src-wavecore-0_7_1.owner = "ansiwave";
+  inputs.src-wavecore-0_7_1.repo  = "wavecore";
+  inputs.src-wavecore-0_7_1.type  = "github";
   
   inputs."urlly".owner = "nim-nix-pkgs";
   inputs."urlly".ref   = "master";
@@ -37,14 +37,6 @@
   inputs."flatty".inputs.nixpkgs.follows = "nixpkgs";
   inputs."flatty".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
   
-  inputs."zippy".owner = "nim-nix-pkgs";
-  inputs."zippy".ref   = "master";
-  inputs."zippy".repo  = "zippy";
-  inputs."zippy".dir   = "0_10_3";
-  inputs."zippy".type  = "github";
-  inputs."zippy".inputs.nixpkgs.follows = "nixpkgs";
-  inputs."zippy".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
-  
   inputs."paramidi".owner = "nim-nix-pkgs";
   inputs."paramidi".ref   = "master";
   inputs."paramidi".repo  = "paramidi";
@@ -53,16 +45,32 @@
   inputs."paramidi".inputs.nixpkgs.follows = "nixpkgs";
   inputs."paramidi".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
   
+  inputs."threading".owner = "nim-nix-pkgs";
+  inputs."threading".ref   = "master";
+  inputs."threading".repo  = "threading";
+  inputs."threading".dir   = "master";
+  inputs."threading".type  = "github";
+  inputs."threading".inputs.nixpkgs.follows = "nixpkgs";
+  inputs."threading".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
+  
+  inputs."ansiutils".owner = "nim-nix-pkgs";
+  inputs."ansiutils".ref   = "master";
+  inputs."ansiutils".repo  = "ansiutils";
+  inputs."ansiutils".dir   = "0_1_0";
+  inputs."ansiutils".type  = "github";
+  inputs."ansiutils".inputs.nixpkgs.follows = "nixpkgs";
+  inputs."ansiutils".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
+  
   outputs = { self, nixpkgs, flakeNimbleLib, ...}@deps:
   let 
     lib  = flakeNimbleLib.lib;
-    args = ["self" "nixpkgs" "flakeNimbleLib" "src-wavecore-0_3_0"];
+    args = ["self" "nixpkgs" "flakeNimbleLib" "src-wavecore-0_7_1"];
     over = if builtins.pathExists ./override.nix 
            then { override = import ./override.nix; }
            else { };
   in lib.mkRefOutput (over // {
     inherit self nixpkgs ;
-    src  = deps."src-wavecore-0_3_0";
+    src  = deps."src-wavecore-0_7_1";
     deps = builtins.removeAttrs deps args;
     meta = builtins.fromJSON (builtins.readFile ./meta.json);
   } );
